@@ -1,0 +1,15 @@
+p {
+  font-size: 1.5em;
+  color: #fe7f88;
+  background-image: none;
+  background-color: transparent;
+}
+
+body {
+  background-image: url("https://iili.io/HEOxW12.md.jpg");
+}
+
+.gallery {
+  height: 400px;
+  width: auto;
+}
