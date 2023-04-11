@@ -7,59 +7,48 @@ body {
   text-align: center;
 }
 
-div {
+.app {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  min-width: 1800px;
-  min-width: auto;
-  /* margin: 5pt; */
+  gap: 4px;
+  width: 750px;
+}
+
+.app div {
   border-style: solid;
-  border-spacing: 5pt;
-  border-width: 10pt;
-  border-color: rgb(193, 116, 16);
-  flex-basis: 25%;
-  /* background-color: rgb(254 254 254 / 31%); */
+  border-color: blueviolet;
+  background-color: grey;
   cursor: pointer;
-  /* flex-basis: 18%; */
-  padding: 10px;
-  /* padding-bottom: 80px; */
+  flex-basis: 18%;
+  min-width: 25px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   text-align: center;
 }
 
-app.app {
-  /* display: flex; */
-  flex-wrap: wrap;
-  gap: 6px;
-  /* margin: px; */
-  /* min-width: 1050px; */
-  /* height: 1750px; */
-  border-style: solid;
-  border-width: 3pt;
-  border-color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255, 25%);
-  cursor: pointer;
-  flex-basis: 18%;
-  /* padding: 70px; */
-  /* padding-bottom: 10px; */
-  text-align: center;
+.card.active {
+  background-color: red;
 }
-.appCard.appCard1 {
+
+.app div #app:hover {
+  background-color: rgb(254 254 254 / 31%);
+}
+/* .appCard.appCard1 {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   min-width: 150px;
   /* min-height: 150px; */
-  border-style: solid;
+  /* border-style: solid;
   border-width: 5pt;
   border-color: rgb(235, 136, 8);
   background-color: rgb (0, 0, 0, 25%);
   cursor: pointer;
   padding: 15px;
   text-align: center;
-  flex-basis: 25%;
-}
-#appCard {
+  flex-basis: 25%; */
+/* } */ 
+/* #appCard {
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
@@ -73,11 +62,11 @@ app.app {
   padding: 6px;
   text-align: center;
   flex-basis: 25%;
-}
-
-/* .card.active {
-  background-color: red;
 } */
+
+.card.active {
+  background-color: red;
+}
 
 h1,
 h3 {
