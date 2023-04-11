@@ -1,5 +1,5 @@
-const app = document.getElementById('app');
-// app.appendChild(div);
+// const app = document.getElementById('app');
+
 
 let clickCount = 0;
 let firstCard = "";
@@ -29,38 +29,129 @@ const picturesPick = async () => {
     return el;
   };
 
-//   getArrayOfUrls();
+  getArrayOfUrls();
 
  
+const boardBiz = async () => {
+    const board = await getArrayOfUrls();
+    const cards = board.concat(board);
+    cards.sort(() => 0.5 - Math.random());
+    const grid = document.createElement("div");
+    grid.classList.add("grid");
+    app.appendChild(grid);
+    board.forEach((cards) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.setAttribute("data-id", i);
+        card.addEventListener("click", flipCard);
+        grid.appendChild(card);
+        i++;
+      });
+        // console.log(img);
+        // console.log(div);
+        // console.log(grid);
+        console.log(cards);
+        // console.log(board);
+        return grid + cards;
+        
+    };
+    
+    boardBiz();
 
-const buildBoard = async () => {
-    const data = await addPicsToDom();
-    const response = data;
-    const board = [...data[0], ...data[0]];
-    const board2 = response.concat(response);
-    const randomBoard = board2.sort(() => Math.random() - 0.5);
-    console.log(randomBoard);
-    const buildBoard = randomBoard.map((el) => {
-        return el;
-    });
 
-    //
 
-    console.log(board);
-    return board;
-};
+  
 
-const addPicsToDom = async () => {
-    const response = await buildBoard(); {
+    const flipCard = async () => {
+        const card = await boardBiz();
+        const cardIds = card.getAttribute("data-id");
+        cardIds.push(cardIds);
+        card.classList.add("flip");
+        if (cardIds.length === 2) {
+            setTimeout(checkForMatch, 500);
+        }
+    };
+
+
+    const checkForMatch = async () => {
+        const cardset = await boardBiz();
+        const firstCard = cardset[cardIds[0]];
+        const secondCard = cardset[cardIds[1]];
+        if (firstCard.dataset.id === secondCard.dataset.id) {
+            firstCard.removeEventListener("click", flipCard);
+            secondCard.removeEventListener("click", flipCard);
+            clickCount++;
+            cardIds = [];
+            if (clickCount === 10) {
+                alert("You win!");
+            }
+        } else {
+            firstCard.classList.remove("flip");
+            secondCard.classList.remove("flip");
+            cardIds = [];
+        }
+    };
+
+
+    // checkForMatch();
+
+    
+
+
+
+// const dataset = async () => {
+//     const cards = await boardBiz();
+//     const card = cards.map((el) => {
+//         return el.dataset.id;
+//     });
+//     console.log(card);
+//     return card;
+// };
+
+// dataset();
+
+// const cardIds = async () => {
+//     const cards = await boardBiz();
+//     const card = cards.map((el) => {
+//         return el.dataset.id;
+//     });
+//     console.log(card);
+//     return card;
+// };
+
+// cardIds();
+
+// const boardBiz = async () => {
+//     const board = await getArrayOfUrls();
+//     const app = document.getElementById('app');
+//     const duplicateBoard = board.concat(board);
+//     const shuffleBoard = duplicateBoard.sort(() => 0.5 - Math.random());
+//     const buildBoard = shuffleBoard.map((el) => {
+//         const div = document.createElement('div');
+//         div.classList = 'activeCard';
+//         div.setAttribute('id', i);
+//         app.appendChild(div);
+//         div.appendChild(el);
+//         i++;
+//         return div;
+//     });
+//     return buildBoard;
+//     // console.log(shuffledBoard);
+//     // return shuffledBoard;
+// };
+
+// boardBiz();
+// const addPicsToDom = async () => {
+//     const response = await buildBoard(); {
      
-        const img = document.createElement("img");
-        const imgsrc = response[i = 0, i < response.length, i++];
-        app.appendChild(imgsrc);
-        img.classList = 'activeCard';
-        console.log(imgsrc);
-        return img;
-    };
-    };
+//         const img = document.createElement("img");
+//         const imgsrc = response[i = 0, i < response.length, i++];
+//         app.appendChild(imgsrc);
+//         img.classList = 'activeCard';
+//         console.log(imgsrc);
+//         return img;
+//     };
+//     };
 // buildBoard();
 
 // const board2 = async () => {
