@@ -27,21 +27,18 @@ body {
   padding-bottom: 80px; */
   /* text-align: center; */
 /* } */ 
-div#app.app {
+/* div#app.app {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   width: 1050px;
+  height: auto;
   align-items: center;
-}
+} */
 
-div.grid {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-
-  /* grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr); */
-  /* gap: 10px; */
+/* div {
+  display: flex;
+  flex-wrap: wrap;
   width: 1050px;
   height: 1050px;
   row-gap: 5px;
@@ -49,7 +46,18 @@ div.grid {
   border-style: solid;
   border-color: blueviolet;
   background-color: grey;
-  cursor: pointer;
+} */
+div.activeCards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1050px;
+  height: 1050px;
+  row-gap: 5px;
+  column-gap: 5px;
+  border-style: solid;
+  border-color: blueviolet;
+  background-color: grey;
+  /* cursor: pointer; */
   flex-basis: 18%;
   align-items: center;
 
@@ -66,22 +74,24 @@ div.grid {
 
 .app div {
   border-style: solid;
-  border-color: blueviolet;
+  /* border-color: blueviolet; */
   background-color: grey;
   cursor: pointer;
-  flex-basis: 18%;
-  min-width: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
+  /* flex-basis: 18%; */
+  /* min-width: 25px; */
+  /* padding-top: 20px; */
+  /* padding-bottom: 20px; */
+  /* align-items: center; */
 }
 
 div.card {
-  display: flex;
+  /* display: flex; */
   /* flex-wrap: wrap; */
   gap: 4px;
   min-width: 200px;
   height: 200px;
+  cursor: pointer;
+
   /* width: 750px; */
 }
 /* .card.active {

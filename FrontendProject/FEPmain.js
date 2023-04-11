@@ -1,4 +1,4 @@
-// const app = document.getElementById('app');
+const app = document.getElementById('app');
 
 
 let clickCount = 0;
@@ -25,7 +25,7 @@ const picturesPick = async () => {
   let el = newArray[0].photo.map((el) => {
     return el.url_n;
     });
-    // console.log(el);
+    console.log(el);
     return el;
   };
 
@@ -35,26 +35,105 @@ const picturesPick = async () => {
 const boardBiz = async () => {
     const board = await getArrayOfUrls();
     const cards = board.concat(board);
-    cards.sort(() => 0.5 - Math.random());
+    const card = [cards[i = 0, i < cards.length, i++]];
+    console.log(cards);
     const grid = document.createElement("div");
-    grid.classList.add("grid");
+    grid.classList.add("activeCards");
     app.appendChild(grid);
-    board.forEach((cards) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-        card.setAttribute("data-id", i);
-        card.addEventListener("click", flipCard);
-        grid.appendChild(card);
-        i++;
-      });
-        // console.log(img);
-        // console.log(div);
-        // console.log(grid);
-        console.log(cards);
-        // console.log(board);
-        return grid + cards;
+    cards.forEach((el) => {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        grid.appendChild(cardElement);
+
+        const cardImageElement = document.createElement('div');
+        cardImageElement.classList.add('card-image');
+        cardElement.appendChild(cardImageElement);
+
+        // const cardBackElement = document.createElement('div');
+        // cardBackElement.classList.add('card-back');
+        // cardImageElement.appendChild(cardBackElement);
+
+        // const cardBackImageElement = document.createElement('img');
+        // cardBackImageElement.classList.add('card-back-image');
+        // cardBackImageElement.src = el;
+        // cardBackElement.appendChild(cardBackImageElement);
+
+        const cardFrontElement = document.createElement('div');
+        cardFrontElement.classList.add('card-front');
+        cardImageElement.appendChild(cardFrontElement);
+
+        const cardFrontImageElement = document.createElement('img');
+        cardFrontImageElement.classList.add('card-front-image');
+        cardFrontImageElement.src = cards[i];
+        cardFrontElement.appendChild(cardFrontImageElement);
+
+//     //     const flipCard = {onclick, cards}
+//     //         card.forEach(element => {
+//     //         [cardFrontImageElement, cardBackImageElement]
+//     //     });
+//     //     cardBackImageElement.ATTRIBUTE_NODE('click', flipCard);
         
-    };
+//     //     const clicked = firstCard.addEventListener('click', (flipCard) => {
+//     //         cardElement.classList.add('flipped');
+//     //         toggleCard(cardElement);
+//     //         if (firstCard === secondCard) {
+//     //             cardElement.classList.add('matched');
+//     //             firstCard.removeEventListener('click', flipCard);
+//     //             secondCard.removeEventListener('click', flipCard);
+//     //             clickCount++;
+                
+//     //         }
+//     //         if (firstCard !== secondCard) {
+//     //             cardElement.classList.remove('flipped');
+//     //             re
+//     //         }
+
+
+
+
+
+
+//     //     });
+
+        
+    
+
+//     // const app = document.getElementById('app');
+    
+
+
+    cards.sort(() => 0.5 - Math.random());
+    // card.setAttribute("id", i);
+//     grid.appendChild(cards);
+
+    
+//     // card.appendChild(card);
+//     // i++;
+//     // need to push cards to DOM and append them 
+//     // const grid = document.createElement("div");
+//     // grid.classList.add("grid");
+//     // const app = document.createElement("div");
+//     // grid.classList.add("grid");
+//     // appendChild(cards);
+
+
+//     const app = document.createElement("div");
+//     grid.classList.add("grid");
+//     appendChild(cards);
+//     cards.forEach((card) => {
+//         card.addEventListener("click", cards);
+//         cards.classList.add("card");
+//         cards.setAttribute("data", i);
+//         i++;
+//       });
+//         // console.log(img);
+//         // console.log(div);
+//         // console.log(grid);
+//         console.log(cards);
+//         // console.log(board);
+//         return cards;
+        
+    })};
     
     boardBiz();
 
@@ -64,7 +143,7 @@ const boardBiz = async () => {
 
     const flipCard = async () => {
         const card = await boardBiz();
-        const cardIds = card.getAttribute("data-id");
+        const cardIds = card.getAttribute.id;
         cardIds.push(cardIds);
         card.classList.add("flip");
         if (cardIds.length === 2) {
