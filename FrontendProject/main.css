@@ -7,6 +7,8 @@ body {
   text-align: center;
 }
 
+div#text { width: 0px; height: 12em; white-space: nowrap; overflow: hidden;  }
+
 /* .app .card  {
   display: flex;
   flex-wrap: wrap;

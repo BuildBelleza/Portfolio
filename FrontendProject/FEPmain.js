@@ -1,5 +1,9 @@
 const app = document.getElementById('app');
 
+var spanWidth = $('#text span').width();
+$('#text').animate( { width: spanWidth }, 2000 );
+
+
 
 let clickCount = 0;
 let firstCard = "";
