@@ -1,10 +1,5 @@
 const app = document.getElementById('app');
 
-var spanWidth = $('#text span').width();
-$('#text').animate( { width: spanWidth }, 2000 );
-
-
-
 let clickCount = 0;
 let firstCard = "";
 let secondCard = "";
@@ -14,7 +9,7 @@ let i = 0;
 
 const picturesPick = async () => {
     const x = await fetch(
-      "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=f315febdc75fb1e9b82dec177517312a&tags=clowns%2C+carnival%2C+circus&content_type=1&content_types=0&extras=url_n%2C+path_alias&per_page=10&page=1&format=json&nojsoncallback=1"
+      "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=f315febdc75fb1e9b82dec177517312a&tags=shoes&content_type=1&content_types=0&extras=url_q%2C+path_alias&per_page=20&page=1&format=json&nojsoncallback=1"
     );
     const response = await x.json();
     const data = [response.photos];
@@ -25,12 +20,50 @@ const picturesPick = async () => {
 
   const getArrayOfUrls = async () => {
   const newArray = await picturesPick();
+  //need to randomly choose 10 different objects from the array
+  newArray[0].photo.sort(() => 0.5 - Math.random());
+  newArray[0].photo.length = 10;
+ //need to make the image elements show as black background until clicked
   // need to iterate over array of objects and return the property with the key of id for each object element in the array and store it in a new array
+//   newArray[0].photo.forEach((el) => {
+//     const cardElement = document.createElement("div");
+//     cardElement.classList.add("card");
+//     app.appendChild(cardElement);
+
+//     const cardImageElement = document.createElement('div');
+//     cardImageElement.classList.add('card-image');
+//     cardElement.appendChild(cardImageElement);
+
+//     const cardBackElement = document.createElement('div');
+//     cardBackElement.classList.add('card-back');
+//     cardImageElement.appendChild(cardBackElement);
+
+//     const cardBackImageElement = document.createElement('img');
+//     cardBackImageElement.classList.add('card-back-image');
+//     cardBackImageElement.src = el.url_q;
+//     cardBackElement.appendChild(cardBackImageElement);
+
+//     const cardFrontElement = document.createElement('div');
+//     cardFrontElement.classList.add('card-front');
+//     cardImageElement.appendChild(cardFrontElement);
+
+//     const cardFrontImageElement = document.createElement('img');
+//     cardFrontImageElement.classList.add('card-front-image');
+//     cardFrontImageElement.src = el.url_q;
+//     cardFrontElement.appendChild(cardFrontImageElement);
+
+//     cardElement.setAttribute("id", i);
+//     i++;
+//   });
+  
+  
   let el = newArray[0].photo.map((el) => {
-    return el.url_n;
+    return el.url_q;
     });
-    console.log(el);
+    // console.log(el);
     return el;
+
+    
   };
 
   getArrayOfUrls();
@@ -39,38 +72,40 @@ const picturesPick = async () => {
 const boardBiz = async () => {
     const board = await getArrayOfUrls();
     const cards = board.concat(board);
-    const card = [cards[i = 0, i < cards.length, i++]];
-    console.log(cards);
-    const grid = document.createElement("div");
-    grid.classList.add("activeCards");
-    app.appendChild(grid);
-    cards.forEach((el) => {
+
+    // const card = [cards[i = 0, i < cards.length, i++]]; 
+    // console.log(card);
+    // return card;
+    newArray[0].photo.forEach((el) => {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
-        grid.appendChild(cardElement);
-
+        app.appendChild(cardElement);
+    
         const cardImageElement = document.createElement('div');
         cardImageElement.classList.add('card-image');
         cardElement.appendChild(cardImageElement);
-
-        // const cardBackElement = document.createElement('div');
-        // cardBackElement.classList.add('card-back');
-        // cardImageElement.appendChild(cardBackElement);
-
-        // const cardBackImageElement = document.createElement('img');
-        // cardBackImageElement.classList.add('card-back-image');
-        // cardBackImageElement.src = el;
-        // cardBackElement.appendChild(cardBackImageElement);
-
+    
+        const cardBackElement = document.createElement('div');
+        cardBackElement.classList.add('card-back');
+        cardImageElement.appendChild(cardBackElement);
+    
+        const cardBackImageElement = document.createElement('img');
+        cardBackImageElement.classList.add('card-back-image');
+        cardBackImageElement.src = el.url_q;
+        cardBackElement.appendChild(cardBackImageElement);
+    
         const cardFrontElement = document.createElement('div');
         cardFrontElement.classList.add('card-front');
         cardImageElement.appendChild(cardFrontElement);
-
+    
         const cardFrontImageElement = document.createElement('img');
         cardFrontImageElement.classList.add('card-front-image');
-        cardFrontImageElement.src = cards[i];
+        cardFrontImageElement.src = el.url_q;
         cardFrontElement.appendChild(cardFrontImageElement);
-
+    
+        cardElement.setAttribute("id", i);
+        i++;
+      });
 //     //     const flipCard = {onclick, cards}
 //     //         card.forEach(element => {
 //     //         [cardFrontImageElement, cardBackImageElement]
@@ -137,7 +172,7 @@ const boardBiz = async () => {
 //         // console.log(board);
 //         return cards;
         
-    })};
+            
     
     boardBiz();
 
@@ -147,12 +182,14 @@ const boardBiz = async () => {
 
     const flipCard = async () => {
         const card = await boardBiz();
+        // const flipped = {onclick, cards}};
         const cardIds = card.getAttribute.id;
         cardIds.push(cardIds);
         card.classList.add("flip");
         if (cardIds.length === 2) {
             setTimeout(checkForMatch, 500);
         }
+        return flipped;
     };
 
 
