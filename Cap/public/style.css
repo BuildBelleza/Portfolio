@@ -1,0 +1,28 @@
+body {
+    background-image: url("https://iili.io/HEOgOhB.md.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+    background-color: transparent;
+    color: white;
+    font-family: Tahoma;
+}
+
+footer {
+    background-color: #999;
+    color: white;
+    padding: 40px 0;
+  }
+
+header {
+  background-color: #ccc;
+  padding: 20px 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px 0;
+    flex: 1;
+}
+  
